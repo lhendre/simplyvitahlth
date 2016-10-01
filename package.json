@@ -23,7 +23,8 @@
   },
   "homepage": "https://github.com/lhendre/simplyvitahlth#readme",
   "dependencies": {
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "web3": "^0.17.0-beta"
   },
   "devDependencies": {
     "bower": "^1.7.9",
