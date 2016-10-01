@@ -16,6 +16,7 @@ app.use(express.static('public'));
 app.get('/', function(req, res) {
   res.render('index');
 });
+app.use('/blockchain',require('./controllers/blockchain'));
 // Set server port
 app.listen(4000);
 console.log('server is running');
