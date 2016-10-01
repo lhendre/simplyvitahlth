@@ -1,0 +1,34 @@
+{
+  "name": "simplyvitahlth",
+  "version": "1.0.0",
+  "description": "Health Care",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lhendre/simplyvitahlth.git"
+  },
+  "keywords": [
+    "health",
+    "care",
+    "block",
+    "chain"
+  ],
+  "author": "Lucas Hendren",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lhendre/simplyvitahlth/issues"
+  },
+  "homepage": "https://github.com/lhendre/simplyvitahlth#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  },
+  "devDependencies": {
+    "bower": "^1.7.9",
+    "grunt": "^1.0.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-sass": "^1.2.1"
+  }
+}
