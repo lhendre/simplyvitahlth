@@ -16,9 +16,13 @@ function handleError(res, reason, message, code) {
 }
 
 router.get('/store', function(req, res){
-  var data= "contract test{\n"+
-              "uint x=255;\n"+
-              "}\n";
+
+  var data1 = req.body;
+//  var data=req.body;
+  var data =JSON.stringify(data1);
+
+  console.log(data);
+
 
   var sender='Doctor1';
   var reciever='Doctor2';
@@ -30,7 +34,7 @@ router.get('/store', function(req, res){
   }
   var gasPriceHex=web3.toHex(web3.eth.gasPrice);
   var gasLimit=web3.toHex(300000);
-  var string=" test test test test";
+  var string=data;
   var buf=new Buffer(string);
   var hexData='0x'+buf.toString('hex');
   var non=web3.eth.getTransactionCount("0xDDF083793273Dbb490282e09007EEb61020433c8")
