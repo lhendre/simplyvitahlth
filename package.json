@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/lhendre/simplyvitahlth#readme",
   "dependencies": {
+    "body-parser": "^1.15.2",
     "ejs": "^2.5.2",
     "ethereumjs-tx": "^1.1.2",
     "express": "^4.14.0",

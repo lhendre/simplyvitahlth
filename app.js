@@ -2,8 +2,10 @@
 var express = require('express');
 var app = express();
 var path = require('path');
-
 var expressWs = require('express-ws')(app);
+var bodyParser = require('body-parser');
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 // views as directory for all template files
 app.set('views', path.join(__dirname, 'views'));
@@ -33,6 +35,12 @@ app.get("/visits", function(req, res) {
     ]
   }
   res.send(visitsArray);
+});
+
+app.post('/visits', function(req, res) {
+    var visit = req.body;
+    console.log("Received: ", visit);
+    res.send(visit);
 });
 
 app.ws('/echo', function(ws, req) {
