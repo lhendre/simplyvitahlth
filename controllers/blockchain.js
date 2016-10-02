@@ -1,12 +1,19 @@
-var express = require('express')
-  , router = express.Router()
-var  Web3 = require('web3')
-var web3 = new Web3()
+var express = require('express');
+var router = express.Router();
+var Web3 = require('web3');
+var web3 = new Web3();
 var Tx=require("ethereumjs-tx")
 var privateKey1=new Buffer('caf65a98d49d62f7db0dcb0e283af50c0597143a4c2c4c63c8aaa88bc55a30dd','hex')
 var privateKey2=new Buffer('068bc17c28a6697ba159e8bc34907938609278efa9f589498be9acdbffa6f335','hex')
 
 web3.setProvider(new web3.providers.HttpProvider('http://localhost:8101'))
+
+function handleError(res, reason, message, code) {
+  console.error("ERROR: " + reason);
+  res.status(code || 500).json({
+    "error": message
+  });
+}
 
 router.get('/store', function(req, res){
   var data= "contract test{\n"+
@@ -89,19 +96,16 @@ router.get('/createContract', function(req, res){
 
 router.get('/triggerContract', function(req, res){
 
-  res.send('')
+  res.send('');
 })
 
 router.get('/test', function(req, res){
    coinbase=web3.eth.coinbase;
+   console.log(coinbase);
   var balance= web3.eth.getBalance(coinbase);
   console.log(coinbase);
   console.log(balance);
-  console.log(web3.eth.accounts);
-  console.log(web3.eth.getBalance(web3.eth.accounts[5]).toNumber())
-  console.log(web3.eth.getBalance(web3.eth.accounts[4]).toNumber())
-
-  res.send('')
+  res.send('');
 })
 
-module.exports=router
+module.exports = router;
