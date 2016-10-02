@@ -79,3 +79,12 @@ geth --datadir="/tmp/eth/60/01" --networkid 12345 --mine -verbosity 6 --ipcdisab
 
 
 geth --datadir="/tmp/eth/60/01" --etherbase 0 --mine -verbosity 6 --ipcdisable --port 30301 --autodag --rpc  --rpcport 8101 console 2>> /tmp/eth/60/01.log
+
+
+
+
+  geth --datadir="/tmp/eth/60/01" init ./config/genesis.json
+
+geth --dev --datadir="/tmp/eth/60/01" --networkid 12345 --mine --minerthreads 1 --ipcdisable --port 30301 --rpc  --rpcport 8101 console
+
+geth --dev --datadir="/tmp/eth/60/01" --etherbase 0xDDF083793273Dbb490282e09007EEb61020433c8  --maxpeers 0 --gasprice 0 --port 0 --shh --networkid 12345 --mine --minerthreads 8  --nodiscover --ipcdisable --port 30301 --rpc  --rpcport 8101 console

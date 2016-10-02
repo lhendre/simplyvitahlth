@@ -30,22 +30,17 @@ router.get('/store', function(req, res){
   }
   var gasPriceHex=web3.toHex(web3.eth.gasPrice);
   var gasLimit=web3.toHex(300000);
-  console.log(gasPriceHex)
   var string=" test test test test";
   var buf=new Buffer(string);
   var hexData='0x'+buf.toString('hex');
-  console.log(hexData)
-  var json={
-    test:"234234",
-    test2:2,
-    test3:"Dr. House"
-  }
+  var non=web3.eth.getTransactionCount("0xDDF083793273Dbb490282e09007EEb61020433c8")
+  console.log(non);
   var rawTx={
-    nonce:'0x01111',
+    nonce:non,
     gasPrice:gasPriceHex,
     gasLimit:gasLimit,
     to:toAddr,
-    value:'0',
+    value:'1',
     data:hexData
   }
 
@@ -60,21 +55,14 @@ router.get('/store', function(req, res){
   web3.eth.sendRawTransaction(serializedTx.toString('hex'), function(err,hash){
     console.log('inside')
     if(!err){
-
       console.log(hash);
-      console.log('here')
       var result=web3.eth.getTransaction(hash);
-      console.log(result)
-      console.log('buf')
       var toHex= result.input;
-      toHex=toHex.replace("0x","")
       console.log(toHex);
+      toHex=toHex.replace("0x","")
       var buffer= new Buffer(toHex,'hex');
-      console.log(buffer)
-      console.log('buf2')
       var dataR= buffer.toString('ascii');
       console.log(dataR);
-      console.log('here2')
     }
     else {
         console.log(err)
@@ -85,6 +73,7 @@ router.get('/store', function(req, res){
 })
 
 router.get('/retrieve', function(req, res){
+
 
   res.send('')
 })
@@ -102,8 +91,14 @@ router.get('/triggerContract', function(req, res){
 router.get('/test', function(req, res){
    coinbase=web3.eth.coinbase;
    console.log(coinbase);
-  var balance= web3.eth.getBalance(coinbase);
-  console.log(coinbase);
+  var balance= web3.eth.getBalance(web3.eth.accounts[0]).toNumber();
+  console.log(web3.eth.getBalance(web3.eth.accounts[1]).toNumber());
+
+  console.log(web3.eth.getBalance(web3.eth.accounts[2]).toNumber());
+  console.log(web3.eth.getBalance(web3.eth.accounts[3]).toNumber());
+  console.log(web3.eth.getBalance(web3.eth.accounts[4]).toNumber());
+  console.log(web3.eth.getBalance(web3.eth.accounts[5]).toNumber())
+  console.log('here')
   console.log(balance);
   res.send('');
 })
