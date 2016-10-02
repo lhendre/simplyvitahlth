@@ -15,7 +15,7 @@ function handleError(res, reason, message, code) {
   });
 }
 
-router.get('/store', function(req, res){
+router.post('/store', function(req, res){
 
   var data1 = req.body;
 //  var data=req.body;

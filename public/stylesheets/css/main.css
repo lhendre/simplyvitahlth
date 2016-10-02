@@ -1,0 +1,60 @@
+tr.next button {
+  line-height: 12px;
+  width: 100%;
+}
+
+tr.completed, tr.clickable {
+  cursor: pointer;
+}
+
+td.positive {
+  color: green;
+  font-weight: bold;
+}
+
+td.negative {
+  color: red;
+  font-weight: bold;
+}
+
+.upload-area {
+	padding: 48px;
+	text-align: center;
+    border-style: dashed;
+}
+
+.dz-hover {
+	background: #008fd5;
+}
+
+.upload-area a {
+	margin-top: 6px;
+	margin-right: 0;
+	display: inline-block;
+}
+
+.future { 
+    color: gray;
+}
+
+.completed {
+    cursor: pointer;
+}
+
+.completed:hover {
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
