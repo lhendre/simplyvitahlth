@@ -57,7 +57,7 @@ var storage=[
       "specialty": "Orthopaedic Surgery",
       "priority": 5
      }]
-web3.setProvider(new web3.providers.HttpProvider('http://localhost:8101'))
+// web3.setProvider(new web3.providers.HttpProvider('http://localhost:8101'))
 
 // var somecontractContract = web3.eth.contract([{"constant":false,"inputs":[{"name":"amount","type":"uint256"},{"name":"recipient","type":"address"}],"name":"withdraw","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"inputs":[],"type":"constructor"},{"payable":false,"type":"fallback"},{"anonymous":false,"inputs":[{"indexed":false,"name":"_from","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"DepositMade","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"_to","type":"address"},{"indexed":false,"name":"msg","type":"string"}],"name":"WithdrawalMade","type":"event"}]);
 // var somecontract = somecontractContract.new(
@@ -79,32 +79,32 @@ web3.setProvider(new web3.providers.HttpProvider('http://localhost:8101'))
 
 console.log(__dirname);
 
-var filter=web3.eth.filter('pending')
-filter.watch(function(error, log){
+// var filter=web3.eth.filter('pending')
+// filter.watch(function(error, log){
 
-  if(!error){
-  console.log('filter')
-  console.log(log)
-  console.log(error)
-  console.log('here')
-  var result=web3.eth.getTransaction(log);
-  console.log(result)
-  console.log(result.input)
-  console.log('buf')
-  var toHex= result.input;
-  toHex=toHex.replace("0x","")
-  console.log(toHex);
-  var buffer= new Buffer(toHex,'hex');
-  console.log(buffer)
-  console.log('buf2')
-  var dataR= buffer.toString('ascii');
-  console.log(dataR);
-  console.log('here2')
-  storage.push(JSON.parse(dataR));
-}
+//   if(!error){
+//   console.log('filter')
+//   console.log(log)
+//   console.log(error)
+//   console.log('here')
+//   var result=web3.eth.getTransaction(log);
+//   console.log(result)
+//   console.log(result.input)
+//   console.log('buf')
+//   var toHex= result.input;
+//   toHex=toHex.replace("0x","")
+//   console.log(toHex);
+//   var buffer= new Buffer(toHex,'hex');
+//   console.log(buffer)
+//   console.log('buf2')
+//   var dataR= buffer.toString('ascii');
+//   console.log(dataR);
+//   console.log('here2')
+//   storage.push(JSON.parse(dataR));
+// }
 
 
-})
+// })
 
 var expressWs = require('express-ws')(app);
 var bodyParser = require('body-parser');
